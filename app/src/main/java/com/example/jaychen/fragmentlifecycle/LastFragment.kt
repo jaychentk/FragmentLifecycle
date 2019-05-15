@@ -12,3 +12,12 @@ class LastFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_last, container, false)
     }
 }
+
+class Plain( val simeple: Int?) {
+    var  allByDefault : Int = 0
+}
+
+fun main(args: Array<String>) {
+    val plain = Plain(simeple = null)
+    println(plain)
+}

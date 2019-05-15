@@ -1,0 +1,9 @@
+class PlainClass {
+    val allByDefault
+
+
+}
+
+fun main(args: Array<String>) {
+
+}
