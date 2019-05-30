@@ -6,10 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_a.*
 
-class FragmentB : BaseFragment() {
+class FragmentC : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_b, container, false)
+        return inflater.inflate(R.layout.fragment_c, container, false)
     }
 
 

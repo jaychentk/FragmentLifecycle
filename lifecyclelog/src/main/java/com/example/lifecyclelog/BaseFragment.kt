@@ -10,7 +10,9 @@ import timber.log.Timber
 
 open class BaseFragment : Fragment() {
 
-    fun getLogTag(): String = javaClass.simpleName
+    private fun getLogTag(): String = javaClass.simpleName
+
+    fun getTitle(): String = javaClass.simpleName
 
 
     override fun onAttach(context: Context?) {
@@ -25,6 +27,7 @@ open class BaseFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         print("onCreateView")
+
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 
@@ -36,6 +39,7 @@ open class BaseFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         print("onStart")
+        (activity as MainActivity).setTitle(getTitle())
     }
 
     override fun onStop() {
@@ -48,7 +52,7 @@ open class BaseFragment : Fragment() {
         print("onDetach()")
     }
 
-    fun print(message: String) {
+    private fun print(message: String) {
         Timber.tag(getLogTag()).d(message)
     }
 
