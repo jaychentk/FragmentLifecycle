@@ -14,7 +14,10 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(findViewById(R.id.my_toolbar))
         supportActionBar?.title = "SuperMan"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        addFragment(FragmentA())
+        print("$savedInstanceState")
+        if (savedInstanceState == null) {
+            addFragment(FragmentA())
+        }
     }
 
     override fun onMenuOpened(featureId: Int, menu: Menu?): Boolean {
@@ -45,7 +48,7 @@ class MainActivity : AppCompatActivity() {
     fun replaceFragment(fragment: BaseFragment) {
         setTitle(fragment.getTitle())
         val fm = this.supportFragmentManager
-        fm.beginTransaction().replace(R.id.frame_layout, fragment, fragment.javaClass.simpleName).addToBackStack("").commit()
+        fm.beginTransaction().replace(R.id.frame_layout, fragment, fragment.javaClass.simpleName).addToBackStack(fragment.javaClass.simpleName).commit()
     }
 
     fun setTitle(title: String) {
