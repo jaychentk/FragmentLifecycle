@@ -26,8 +26,7 @@ open class BaseFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        print("onCreateView")
-
+        print("onCreateView $view")
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 
@@ -52,7 +51,7 @@ open class BaseFragment : Fragment() {
         print("onDetach()")
     }
 
-    private fun print(message: String) {
+    protected fun print(message: String) {
         Timber.tag(getLogTag()).d(message)
     }
 

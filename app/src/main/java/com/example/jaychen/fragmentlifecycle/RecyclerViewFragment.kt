@@ -10,6 +10,8 @@ import kotlinx.android.synthetic.main.fragment_recycler_view.*
 
 class RecyclerViewFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
+        print("onCreateView $view")
         return inflater.inflate(R.layout.fragment_recycler_view, container, false)
     }
 
@@ -20,5 +22,19 @@ class RecyclerViewFragment : Fragment() {
                     ?.replace(R.id.container, LastFragment())?.addToBackStack(null)?.commit()
         })
         recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+    }
+
+    override fun onViewStateRestored(savedInstanceState: Bundle?) {
+        print("onViewStateRestored $savedInstanceState")
+        super.onViewStateRestored(savedInstanceState)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString("key", "value")
     }
 }

@@ -9,6 +9,7 @@ import kotlinx.android.synthetic.main.fragment_a.*
 class FragmentB : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        print("onCreateView $view")
         return inflater.inflate(R.layout.fragment_b, container, false)
     }
 
